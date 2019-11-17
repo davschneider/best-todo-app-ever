@@ -12,25 +12,31 @@ def print_todos(pending_list, completed_list):
     else:
         i = 0
         for todo in pending_list:
-            print(f"{i}: {todo}")
+            print(todo)
+            for item in todo:
+                if item != "completed":
+                    print(f"{i}: {item}")
             i += 1
     pending_menu_bottom = """
-=====================    
+=====================   
     """
     print(pending_menu_bottom)
     
     completed_menu_top = """
-====== Completed ======
+===== Completed =====
     """
     print(completed_menu_top)
 
     i = 0
-    for todos in completed_list:
-        print(f"{i}: {todo}")
+    for todo in completed_list:
+        print(todo)
+        for item in todo:
+            if item != "completed":
+                print(f"{i}: {item}")
         i += 1
 
     completed_menu_bottom = """
-=======================    
+=====================  
     """
     print(completed_menu_bottom)
 
@@ -40,16 +46,16 @@ def add_todo(lst, item):
     new_dict['completed'] = False
     
     lst.append(new_dict)
-    
 
 def complete_todo(todos, index):
     todos[index]['completed'] = True
     completed_todo = todos[index]
     # print(f"{completed_todo} is completed.")
     completed_list.append(completed_todo)
-    
     del todos[index]
 
+# def change_status(todolist):
+#     todolist[]
     
     # completed_list.append(completed_todo)
     
@@ -100,5 +106,5 @@ def main():
             complete_todo(pending_list, index_to_delete)
             # print(completed_list)
     
-        
+       
 main()
